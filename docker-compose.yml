@@ -1,0 +1,15 @@
+version: '3.8'
+services:
+  mysql:
+    container_name: test_mysql
+    restart: always
+    image: mysql/mysql-server:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: 'test_pass' # TODO: Change this
+      MYSQL_ROOT_HOST: '%' #Allow connection from any IP
+      MYSQL_USER: 'test'
+      MYSQL_PASS: 'pass'
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./data/db:/var/lib/mysql 
